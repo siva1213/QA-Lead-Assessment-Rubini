@@ -123,61 +123,76 @@ In essence, Appium's combination of features makes it a powerful and efficient t
 9. Open-source Testing Tool:
 One of the biggest reasons why customers go for Appium over other mobile app test automation tools is; its open-source framework that encourages testing on simulators, emulators, and real devices. It’s easier for new automation engineers to get their answers via Appium.
 
-**Include example code snippets for basicmobile test scenarios**
+**Include example code snippets for basic mobile test scenarios**
+
+I have included sample test scenarios using Appium & Java
 
 1. Launch app and verify home screen
-@Test
-public void verifyHomeScreenLoaded() {
-    MobileElement homeTitle = driver.findElement(By.id("com.example:id/home_title"));
-    Assert.assertTrue(homeTitle.isDisplayed(), "Home screen is not displayed");
-}
+   
+@Test<br>
+public void verifyHomeScreenLoaded() {<br>
+    MobileElement homeTitle = driver.findElement(By.id("com.example:id/home_title"));<br>
+    Assert.assertTrue(homeTitle.isDisplayed(), "Home screen is not displayed");<br>
+}<br>
+
 2. Login flow test
-@Test
-public void testLogin() {
-    driver.findElement(By.id("com.example:id/username")).sendKeys("testuser");
-    driver.findElement(By.id("com.example:id/password")).sendKeys("password123");
-    driver.findElement(By.id("com.example:id/login_button")).click();
+
+@Test<br>
+public void testLogin() {<br>
+    driver.findElement(By.id("com.example:id/username")).sendKeys("testuser");<br>
+    driver.findElement(By.id("com.example:id/password")).sendKeys("password123");<br>
+    driver.findElement(By.id("com.example:id/login_button")).click();<br>
 
     MobileElement dashboard = driver.findElement(By.id("com.example:id/dashboard_title"));
     Assert.assertTrue(dashboard.isDisplayed(), "Login fail and Dashboard is not loaded");
 }
+
 3. Scroll down and Click test
-@Test
-public void scrollToElement() {
-    AndroidElement list = (AndroidElement) driver.findElement(By.id("com.example:id/scrollable_list"));
-    MobileElement element = driver.findElement(MobileBy.AndroidUIAutomator(
+
+@Test<br>
+public void scrollToElement() {<br>
+    AndroidElement list = (AndroidElement) driver.findElement(By.id("com.example:id/scrollable_list"));<br>
+    MobileElement element = driver.findElement(MobileBy.AndroidUIAutomator(<br>
         "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(" +
-        "new UiSelector().text(\"Target Item\"));"));
+        "new UiSelector().text(\"Target Item\"));"));<br>
 
     element.click();
 }
+
 4. Validate alert and accept
-@Test
-public void testAlert() {
-    driver.findElement(By.id("com.example:id/show_alert")).click();
-    MobileElement alertText = driver.findElement(By.id("android:id/message"));
-    Assert.assertEquals(alertText.getText(), "This is an alert");
+
+@Test<br>
+public void testAlert() {<br>
+    driver.findElement(By.id("com.example:id/show_alert")).click();<br>
+    MobileElement alertText = driver.findElement(By.id("android:id/message"));<br>
+    Assert.assertEquals(alertText.getText(), "This is an alert");<br>
 
     driver.findElement(By.id("android:id/button1")).click(); // Click OK
 }
+
 5. Rotate screen test
-@Test
-public void rotateScreen() {
-    driver.rotate(ScreenOrientation.LANDSCAPE);
-    // Validate layout in landscape
-    driver.rotate(ScreenOrientation.PORTRAIT);
-}
+
+@Test<br>
+public void rotateScreen() {<br>
+    driver.rotate(ScreenOrientation.LANDSCAPE);<br>
+    // Validate layout in landscape<br>
+    driver.rotate(ScreenOrientation.PORTRAIT);<br>
+}<br>
+
 6. App background running test
-@Test
-public void testBackgroundApp() {
-    driver.runAppInBackground(Duration.ofSeconds(5));
-    Assert.assertTrue(driver.findElement(By.id("com.example:id/home_title")).isDisplayed());
-}
+
+@Test<br>
+public void testBackgroundApp() {<br>
+    driver.runAppInBackground(Duration.ofSeconds(5));<br>
+    Assert.assertTrue(driver.findElement(By.id("com.example:id/home_title")).isDisplayed());<br>
+}<br>
+
 7. Add data(contact) test
-    @Test
-    public void testAddContactSuccessfully() {
-        // Click on "Add" button
-        driver.findElement(By.id("com.example.contactsapp:id/add_button")).click();
+
+    @Test<br>
+    public void testAddContactSuccessfully() {<br>
+        // Click on "Add" button<br>
+        driver.findElement(By.id("com.example.contactsapp:id/add_button")).click();<br>
 
         // Enter contact details
         driver.findElement(By.id("com.example.contactsapp:id/name_input")).sendKeys("Rubini");
