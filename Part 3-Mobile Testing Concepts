@@ -1,1 +1,82 @@
 # QA-Lead-Assessment-Rubini Part 3 answers
+
+1. How you would approach testing a mobile application on both iOS and
+Android? 
+✅ 1. Define Test Strategy/Test plan
+a. Understand Requirements
+Functional requirements (features, flows)
+
+Non-functional (performance, security, UI responsiveness)
+
+b. Decide Testing Types
+Unit Testing
+
+UI Testing
+
+Integration Testing
+
+End-to-End Testing
+
+Regression Testing
+
+Performance and Compatibility Testing
+
+Security Testing
+
+Interruption Testing
+
+✅ 2. Choose Tools and Frameworks
+Cross-Platform Automation Tools:
+Appium (most popular, supports for both Android/iOS)
+
+Detox (for React Native)
+
+Flutter Driver (Flutter apps)
+
+XCUITest + Espresso (native frameworks for iOS & Android)
+
+CI/CD Integration:
+Use GitHub Actions, Jenkins, or CircleCI to run automated tests on real devices/simulators.
+
+✅ 3. Setup Testing Environments
+Simulators/Emulators:
+Android Emulator (Android Studio)
+
+iOS Simulator (Xcode)
+
+Real Device Testing:
+Use device farms (e.g., BrowserStack, Sauce Labs, Firebase Test Lab) to test on a wide range of real devices.
+
+✅ 4. Write Platform-Agnostic Tests (where possible)
+Use common test code for shared functionality (with conditional logic if needed).
+
+Keep platform-specific differences isolated.
+
+✅ 5. Perform Manual Exploratory Testing
+Validate gestures, push notifications, UI/UX elements.
+
+Test platform-specific behaviors (e.g., back button on Android, swipe gestures on iOS).
+
+✅ 6. Test Device Features
+Ensure the app works well with:
+
+Camera, GPS, Microphone, Sensors
+
+Permissions and OS-level settings
+
+Varying network conditions (airplane mode, 3G/4G/5G, no network)
+
+✅ 7. Validate Across OS Versions & Devices
+Test on multiple screen sizes and OS versions.
+
+Focus on the most widely used Android devices and iPhone models.
+
+✅ 8. Track and Report Bugs
+Use bug tracking tools like Jira, TestRail, or Bugzilla.
+
+Attach screenshots/videos/logs for faster resolution.
+
+✅ 9. Continuously Monitor and Improve
+Monitor crash logs via tools like Firebase Crashlytics, Sentry.
+
+Collect user feedback and session recordings.
