@@ -174,34 +174,6 @@ public void testBackgroundApp() {
     Assert.assertTrue(driver.findElement(By.id("com.example:id/home_title")).isDisplayed());
 }
 7. Add data(contact) test
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.By;
-import org.testng.Assert;
-import org.testng.annotations.*;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
-public class AddContactTest {
-
-    AndroidDriver<MobileElement> driver;
-
-    @BeforeClass
-    public void setUp() throws MalformedURLException {
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platformName", "Android");
-        caps.setCapability("deviceName", "Android Emulator");
-        caps.setCapability("appPackage", "com.example.contactsapp"); // Replace with actual package
-        caps.setCapability("appActivity", "com.example.contactsapp.MainActivity"); // Replace with actual activity
-        caps.setCapability("automationName", "UiAutomator2");
-
-        driver = new AndroidDriver<>(new URL("http://localhost:4723/wd/hub"), caps);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
-
     @Test
     public void testAddContactSuccessfully() {
         // Click on "Add" button
@@ -218,12 +190,4 @@ public class AddContactTest {
         MobileElement addedContact = driver.findElement(By.xpath("//android.widget.TextView[@text='Rubini']"));
         Assert.assertTrue(addedContact.isDisplayed(), "Contact was not added successfully");
     }
-
-    @AfterClass
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
-}
 
