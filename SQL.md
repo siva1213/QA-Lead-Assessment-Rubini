@@ -3,13 +3,13 @@
 Assuming we have two tables users(with user_id) and orders(with user_id that references users)
 
 SELECT u.* <br>
-FROM users u
-JOIN(
-    SELECT user_id
-    FROM orders
-    GROUP BY user_id
-    HAVING COUNT(*) > 5
-    ) o ON u.user_id = o.user_id;
+FROM users u <br>
+JOIN( <br>
+    SELECT user_id <br>
+    FROM orders <br>
+    GROUP BY user_id <br>
+    HAVING COUNT(*) > 5 <br>
+    ) o ON u.user_id = o.user_id; <br>
 
 **2.Join tables to get order details with customer information**
 Assuming users table has fields like user_id,name,email,etc and orders table has fields like order_id,user_id,order_date,total_amount etc
