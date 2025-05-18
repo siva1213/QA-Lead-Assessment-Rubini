@@ -1,6 +1,7 @@
 # QA-Lead-Assessment-Rubini Part 3 answers
 
 **1. How you would approach testing a mobile application on both iOS and Android?**
+
 ✅ 1. Define Test Strategy/Test plan
 a. Understand Requirements
 Functional requirements (features, flows)
