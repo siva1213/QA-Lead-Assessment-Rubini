@@ -91,7 +91,7 @@ Test triggers fire correctly under intended conditions.<br>
 
 Validate outputs, side effects, and rollback scenarios.<br>
 
-3. Tools for Database Testing<br>
+3. Tools for Database Testing
 SQL scripts – Manual or automated test queries.<br>
 
 DBUnit / JDBC / JPA – For integration with Java-based apps.<br>
@@ -102,7 +102,7 @@ Flyway / Liquibase – For version control and schema testing.<br>
 
 Data Factory / Faker – For generating synthetic test data.<br>
 
-4. Automation Integration<br>
+4. Automation Integration
 Integrate database integrity tests into your CI/CD pipeline to run:<br>
 
 After code deployment<br>
@@ -111,7 +111,7 @@ After DB schema updates<br>
 
 During nightly regression builds<br>
 
-5. Example Test Case<br>
+5. Example Test Case
 Test Case: Ensure referential integrity for Orders and Customers tables<br>
 
 Precondition: Orders table has a foreign key to Customers.<br>
