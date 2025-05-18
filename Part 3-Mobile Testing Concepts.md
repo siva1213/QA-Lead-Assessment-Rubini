@@ -122,3 +122,57 @@ Appium comes with an inspector tool that allows testers to visually inspect app 
 In essence, Appium's combination of features makes it a powerful and efficient tool for automating mobile app testing, helping developers and testers ensure the quality and reliability of their applications. 
 9. Open-source Testing Tool:
 One of the biggest reasons why customers go for Appium over other mobile app test automation tools is; its open-source framework that encourages testing on simulators, emulators, and real devices. It’s easier for new automation engineers to get their answers via Appium.
+
+**Include example code snippets for basicmobile test scenarios**
+
+1. Launch app and verify home screen
+@Test
+public void verifyHomeScreenLoaded() {
+    MobileElement homeTitle = driver.findElement(By.id("com.example:id/home_title"));
+    Assert.assertTrue(homeTitle.isDisplayed(), "Home screen is not displayed");
+}
+2. Login flow test
+@Test
+public void testLogin() {
+    driver.findElement(By.id("com.example:id/username")).sendKeys("testuser");
+    driver.findElement(By.id("com.example:id/password")).sendKeys("password123");
+    driver.findElement(By.id("com.example:id/login_button")).click();
+
+    MobileElement dashboard = driver.findElement(By.id("com.example:id/dashboard_title"));
+    Assert.assertTrue(dashboard.isDisplayed(), "Login fail and Dashboard is not loaded");
+}
+3. Scroll down and Click test
+@Test
+public void scrollToElement() {
+    AndroidElement list = (AndroidElement) driver.findElement(By.id("com.example:id/scrollable_list"));
+    MobileElement element = driver.findElement(MobileBy.AndroidUIAutomator(
+        "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(" +
+        "new UiSelector().text(\"Target Item\"));"));
+
+    element.click();
+}
+4. Validate alert and accept
+@Test
+public void testAlert() {
+    driver.findElement(By.id("com.example:id/show_alert")).click();
+    MobileElement alertText = driver.findElement(By.id("android:id/message"));
+    Assert.assertEquals(alertText.getText(), "This is an alert");
+
+    driver.findElement(By.id("android:id/button1")).click(); // Click OK
+}
+5. Rotate screen test
+@Test
+public void rotateScreen() {
+    driver.rotate(ScreenOrientation.LANDSCAPE);
+    // Validate layout in landscape
+    driver.rotate(ScreenOrientation.PORTRAIT);
+}
+6. App background running test
+@Test
+public void testBackgroundApp() {
+    driver.runAppInBackground(Duration.ofSeconds(5));
+    Assert.assertTrue(driver.findElement(By.id("com.example:id/home_title")).isDisplayed());
+}
+7. Add data(contact) test
+
+
