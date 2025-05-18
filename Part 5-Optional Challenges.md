@@ -9,33 +9,33 @@ I have already added reporters/CustomReporter.ts in the Playwright web automatio
 **3. Create a shell script to automate test environment setup**
 Added shell script below to automate test environment for Playwright test automation projects.
 
-#!/bin/bash
+#!/bin/bash<br>
 
-#Exit on error
-set -e
+#Exit on error<br>
+set -e<br>
 
-echo "=== Setting up Playwright Test Environment ==="
+echo "=== Setting up Playwright Test Environment ==="<br>
 
-#Step 1: Install Node.js dependencies
-if [ -f package.json ]; then
-    echo "Installing Node.js dependencies..."
-    npm install
-else
-    echo "No package.json found. Initialize a Node.js project first."
-    exit 1
-fi
+#Step 1: Install Node.js dependencies<br>
+if [ -f package.json ]; then<br>
+    echo "Installing Node.js dependencies..."<br>
+    npm install<br>
+else<br>
+    echo "No package.json found. Initialize a Node.js project first."<br>
+    exit 1<br>
+fi<br>
 
-#Step 2: Install Playwright and Browsers
-if ! npx playwright --version &>/dev/null; then
-    echo "Installing Playwright..."
-    npm install -D @playwright/test
-fi
+#Step 2: Install Playwright and Browsers<br>
+if ! npx playwright --version &>/dev/null; then<br>
+    echo "Installing Playwright..."<br>
+    npm install -D @playwright/test<br>
+fi<br>
 
-echo "Installing Playwright browsers..."
-npx playwright install
+echo "Installing Playwright browsers..."<br>
+npx playwright install<br>
 
-#Optional: Run tests
-echo "Running tests..."
-npx playwright test
+#Optional: Run tests<br>
+echo "Running tests..."<br>
+npx playwright test<br>
 
-echo "=== Test Environment Setup Complete ==="
+echo "=== Test Environment Setup Complete ==="<br>
