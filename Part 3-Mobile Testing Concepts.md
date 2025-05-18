@@ -98,3 +98,27 @@ Collect user feedback and session recordings.
 | Testing team has to focus on interaction of mobile devices with user’s moves, voice and environment, eye moves, etc., as it offers variety of options to perform operations  | Testing team does not need on interaction of web devices with user’s move, direction of user's attentions, eye moves, etc. as it offers less variety of options to perform operations  |
 | "The following are the tools or Frameworks for Mobile App Testing-Appium, Espresso,XCUITest,Xamarin,Robotium and more| "The following are the tools or Frameworks for Web App Testing-Selenium is the most popular one among all other commercial tools,Cypress,Playwright,Katalon Studio and more."  |
 | Tablets, peripheral devices like smartwatches, fitness trackers, and even medical devices like heart pacemakers may need to undergo testing  | Mouse, webcams, game controllers, keyboards, and other peripheral devices are tested  |
+
+
+3. Tools you would use (Appium, etc.) and why -
+
+I will choose Appium for mobile app test automation. Here's a more detailed look at why Appium is considered good for mobile app testing:
+1. Cross-Platform Compatibility:
+Appium supports testing on Android and iOS, allowing testers to write tests once and run them across different platforms with minimal changes. 
+2. Multiple Programming Language Support:
+Appium can be used with various languages like Java, Python, and Ruby, giving flexibility to testers in choosing their preferred language for writing test scripts. 
+3. Testing Different App Types:
+Appium can automate testing for native, hybrid, and web applications, covering a wide range of app types. 
+4. Testing on Real Devices, Simulators, and Emulators:
+Testers can run tests on real devices, simulators, or emulators, allowing them to simulate various user scenarios and device configurations. 
+5. Real-time Monitoring and Parallel Execution:
+Appium offers real-time monitoring of tests, enabling testers to observe the test execution and identify issues in real-time. It also supports parallel execution, allowing testers to run tests on multiple devices simultaneously, speeding up the testing process. 
+6. Integration with Continuous Integration Servers:
+Appium can be integrated with continuous integration servers, enabling automated testing as part of the CI/CD pipeline, reducing manual testing effort and speeding up the development process. 
+7. No Code Modification Required:
+Appium interacts with mobile apps in the same way as end-users, eliminating the need for modifying the application code, ensuring that tests accurately represent real-world scenarios. 
+8. Appium Inspector:
+Appium comes with an inspector tool that allows testers to visually inspect app elements, identify their properties, and generate test scripts, making it easier to create and maintain test scripts. 
+In essence, Appium's combination of features makes it a powerful and efficient tool for automating mobile app testing, helping developers and testers ensure the quality and reliability of their applications. 
+9. Open-source Testing Tool:
+One of the biggest reasons why customers go for Appium over other mobile app test automation tools is; its open-source framework that encourages testing on simulators, emulators, and real devices. It’s easier for new automation engineers to get their answers via Appium.
