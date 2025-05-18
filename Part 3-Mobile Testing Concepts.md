@@ -1,7 +1,6 @@
 # QA-Lead-Assessment-Rubini Part 3 answers
 
-1. How you would approach testing a mobile application on both iOS and
-Android? 
+**1. How you would approach testing a mobile application on both iOS and Android?**
 ✅ 1. Define Test Strategy/Test plan
 a. Understand Requirements
 Functional requirements (features, flows)
@@ -82,7 +81,7 @@ Monitor crash logs via tools like Firebase Crashlytics, Sentry.
 Collect user feedback and session recordings.
 
 
-2. Key differences between mobile and web testing
+**2. Key differences between mobile and web testing**
 
 | Mobile App Testing  | Web App Testing |
 | ------------- | ------------- |
@@ -100,7 +99,7 @@ Collect user feedback and session recordings.
 | Tablets, peripheral devices like smartwatches, fitness trackers, and even medical devices like heart pacemakers may need to undergo testing  | Mouse, webcams, game controllers, keyboards, and other peripheral devices are tested  |
 
 
-3. Tools you would use (Appium, etc.) and why -
+**3. Tools you would use (Appium, etc.) and why?**
 
 I will choose Appium for mobile app test automation. Here's a more detailed look at why Appium is considered good for mobile app testing:
 1. Cross-Platform Compatibility:
