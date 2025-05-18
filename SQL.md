@@ -13,7 +13,7 @@ JOIN( <br>
 
 **2.Join tables to get order details with customer information**<br>
 Assuming users table has fields like user_id,name,email,etc and orders table has fields like order_id,user_id,order_date,total_amount etc
-SQL query is given below to retrieves each order along with the corresponding user's name,email and ID.
+SQL query is given below to retrieves each order along with the corresponding user's name,email and ID.<br>
 SELECT<br>
   o.order_id,<br>
   o.order_date,<br>
