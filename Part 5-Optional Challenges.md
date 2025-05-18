@@ -1,4 +1,4 @@
-<h2>Part 5 - Answers</h2>
+# Part 5 - Answers
 
 **1. Create a simple CI pipeline using GitHub Actions to run your Playwright or API tests**
 I have created CI pipeline using Github actions for Playwright automation project & I have shared a video clip for the explanation under https://drive.google.com/drive/u/0/folders/18eIqYoIZGcaFbZyPYssANroziLHqCeC6.
@@ -11,12 +11,12 @@ Added shell script below to automate test environment for Playwright test automa
 
 #!/bin/bash
 
-# Exit on error
+#Exit on error
 set -e
 
 echo "=== Setting up Playwright Test Environment ==="
 
-# Step 1: Install Node.js dependencies
+#Step 1: Install Node.js dependencies
 if [ -f package.json ]; then
     echo "Installing Node.js dependencies..."
     npm install
@@ -25,7 +25,7 @@ else
     exit 1
 fi
 
-# Step 2: Install Playwright and Browsers
+#Step 2: Install Playwright and Browsers
 if ! npx playwright --version &>/dev/null; then
     echo "Installing Playwright..."
     npm install -D @playwright/test
@@ -34,7 +34,7 @@ fi
 echo "Installing Playwright browsers..."
 npx playwright install
 
-# Optional: Run tests
+#Optional: Run tests
 echo "Running tests..."
 npx playwright test
 
