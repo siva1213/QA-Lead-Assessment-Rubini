@@ -48,7 +48,7 @@ Triggers and Stored Procedures
 
 Normalization rules
 
-2. Types of Database Integrity Tests
+2. Types of Database Integrity Tests<br>
 🔹 a. Schema Validation
 Ensure that all tables, columns, data types, constraints, and indexes are correctly defined.
 
