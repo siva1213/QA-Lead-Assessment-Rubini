@@ -2,7 +2,7 @@
 **1.Retrieve all users who have placedmore than 5 orders**
 Assuming we have two tables users(with user_id) and orders(with user_id that references users)
 
-SELECT u.*
+SELECT u.* <br>
 FROM users u
 JOIN(
     SELECT user_id
