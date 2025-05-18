@@ -49,76 +49,76 @@ Triggers and Stored Procedures
 Normalization rules
 
 2. Types of Database Integrity Tests<br>
-🔹 a. Schema Validation
-Ensure that all tables, columns, data types, constraints, and indexes are correctly defined.
+🔹 a. Schema Validation<br>
+Ensure that all tables, columns, data types, constraints, and indexes are correctly defined.<br>
 
-Tools: Liquibase, Flyway, SQL scripts for schema comparisons.
+Tools: Liquibase, Flyway, SQL scripts for schema comparisons.<br>
 
-🔹 b. Data Accuracy
-Insert known data and verify it is correctly stored and retrievable.
+🔹 b. Data Accuracy<br>
+Insert known data and verify it is correctly stored and retrievable.<br>
 
-Check for correct calculations, formatting, and default values.
+Check for correct calculations, formatting, and default values.<br>
 
-🔹 c. Referential Integrity
-Ensure child records cannot exist without valid parent records.
+🔹 c. Referential Integrity<br>
+Ensure child records cannot exist without valid parent records.<br>
 
-Test deletion/update cascades where defined.
+Test deletion/update cascades where defined.<br>
 
-Try inserting invalid foreign keys — ensure failure is handled properly.
+Try inserting invalid foreign keys — ensure failure is handled properly.<br>
 
-🔹 d. Uniqueness Constraints
-Attempt to insert duplicate data in fields that require uniqueness.
+🔹 d. Uniqueness Constraints<br>
+Attempt to insert duplicate data in fields that require uniqueness.<br>
 
-Verify that duplicates are rejected appropriately.
+Verify that duplicates are rejected appropriately.<br>
 
-🔹 e. Not Null Constraints
-Attempt to insert NULL in columns where it’s not allowed.
+🔹 e. Not Null Constraints<br>
+Attempt to insert NULL in columns where it’s not allowed.<br>
 
-Ensure appropriate error handling or default values.
+Ensure appropriate error handling or default values.<br>
 
-🔹 f. Transaction Consistency
-Test atomic operations: commit, rollback, and savepoint functionality.
+🔹 f. Transaction Consistency<br>
+Test atomic operations: commit, rollback, and savepoint functionality.<br>
 
-Example: If one part of a transaction fails, the entire operation should roll back.
+Example: If one part of a transaction fails, the entire operation should roll back.<br>
 
-🔹 g. Data Migration and ETL Validation
-When migrating data, validate that all records are accurately transferred.
+🔹 g. Data Migration and ETL Validation<br>
+When migrating data, validate that all records are accurately transferred.<br>
 
-Compare source and target counts, and sample content.
+Compare source and target counts, and sample content.<br>
 
-🔹 h. Stored Procedure / Trigger Testing
-Test triggers fire correctly under intended conditions.
+🔹 h. Stored Procedure / Trigger Testing<br>
+Test triggers fire correctly under intended conditions.<br>
 
-Validate outputs, side effects, and rollback scenarios.
+Validate outputs, side effects, and rollback scenarios.<br>
 
-3. Tools for Database Testing
-SQL scripts – Manual or automated test queries.
+3. Tools for Database Testing<br>
+SQL scripts – Manual or automated test queries.<br>
 
-DBUnit / JDBC / JPA – For integration with Java-based apps.
+DBUnit / JDBC / JPA – For integration with Java-based apps.<br>
 
-Postman + Newman – For testing APIs that interact with the DB.
+Postman + Newman – For testing APIs that interact with the DB.<br>
 
-Flyway / Liquibase – For version control and schema testing.
+Flyway / Liquibase – For version control and schema testing.<br>
 
-Data Factory / Faker – For generating synthetic test data.
+Data Factory / Faker – For generating synthetic test data.<br>
 
-4. Automation Integration
-Integrate database integrity tests into your CI/CD pipeline to run:
+4. Automation Integration<br>
+Integrate database integrity tests into your CI/CD pipeline to run:<br>
 
-After code deployment
+After code deployment<br>
 
-After DB schema updates
+After DB schema updates<br>
 
-During nightly regression builds
+During nightly regression builds<br>
 
-5. Example Test Case
-Test Case: Ensure referential integrity for Orders and Customers tables
+5. Example Test Case<br>
+Test Case: Ensure referential integrity for Orders and Customers tables<br>
 
-Precondition: Orders table has a foreign key to Customers.
+Precondition: Orders table has a foreign key to Customers.<br>
 
-Test: Try inserting an order with a non-existent customer_id.
+Test: Try inserting an order with a non-existent customer_id.<br>
 
-Expected Result: DB should reject the insert with a foreign key constraint error.
+Expected Result: DB should reject the insert with a foreign key constraint error.<br>
 
 **Best Practices**
 1. Use a clean test DB or mock DB for each run.
