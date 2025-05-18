@@ -95,14 +95,5 @@ Collect user feedback and session recordings.
 | Testing team have to check performance of mobile devices on fully charged devices and low charged devices because application that drains battery life gets deleted soon  | There is no such of problem of battery life  |
 | One has to consider different screen size, different OEM’s (original equipment manufacturer), storage capacity, etc., in mobile app testing  | One does not consider such things in web app testing  |
 | Testing team has to focus on interaction of mobile devices with user’s moves, voice and environment, eye moves, etc., as it offers variety of options to perform operations  | Testing team does not need on interaction of web devices with user’s move, direction of user's attentions, eye moves, etc. as it offers less variety of options to perform operations  |
-| "The following are the tools or Frameworks for Mobile App Testing-
-Appium
-Espresso
-XCUITest
-Xamarin
-Robotium and more."  | "The following are the tools or Frameworks for Web App Testing-
-Selenium, the most popular one among all other commercial tools.
-WebLOAD
-Acunetix
-Netsparker and more."  |
+| "The following are the tools or Frameworks for Mobile App Testing-Appium, Espresso,XCUITest,Xamarin,Robotium and more| "The following are the tools or Frameworks for Web App Testing-Selenium is the most popular one among all other commercial tools,Cypress,Playwright,Katalon Studio and more."  |
 | Tablets, peripheral devices like smartwatches, fitness trackers, and even medical devices like heart pacemakers may need to undergo testing  | Mouse, webcams, game controllers, keyboards, and other peripheral devices are tested  |
