@@ -81,6 +81,7 @@ Monitor crash logs via tools like Firebase Crashlytics, Sentry.
 
 Collect user feedback and session recordings.
 
+
 2. Key differences between mobile and web testing
 
 | Mobile App Testing  | Web App Testing |
