@@ -24,4 +24,11 @@ SELECT<br>
 FROM orders o<br>
 JOIN users u ON o.user_id = u.user_id;<br>
 
-
+**3. Find products with low inventory (less than 10 items)** <br>
+Assuming products table has product_id,product_name,etc <br>
+and inventory table: product_id,quantity<br>
+SQL query<br>
+SELECT p.*<br>
+FROM products p<br>
+JOIN inventory i ON p.product_id = i.product_id<br>
+WHERE i.quantity < 10;<br>
