@@ -1,0 +1,773 @@
+{
+	"info": {
+		"_postman_id": "06936d62-d12e-4044-9996-1fb2dbb92eed",
+		"name": "JSONPlaceholder-API",
+		"description": "A collection of requests for the JSONPlaceholder test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1310799"
+	},
+	"item": [
+		{
+			"name": "POST API CRUD",
+			"item": [
+				{
+					"name": "CREATE a Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201 Created\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has expected structure\", function () {\r",
+									"  const jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData).to.have.all.keys(\"title\", \"body\", \"userId\", \"id\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Fields are correctly returned\", function () {\r",
+									"  const jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.title).to.eql(\"foo\");\r",
+									"  pm.expect(jsonData.body).to.eql(\"bar\");\r",
+									"  pm.expect(jsonData.userId).to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"foo\",\r\n  \"body\": \"bar\",\r\n  \"userId\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/posts",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE a Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 OK\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Updated post has correct structure\", function () {\r",
+									"  const jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData).to.include.all.keys(\"userId\", \"id\", \"title\", \"body\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Updated values are correct\", function () {\r",
+									"  const jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.title).to.eql(\"updated title\");\r",
+									"  pm.expect(jsonData.body).to.eql(\"updated body\");\r",
+									"  pm.expect(jsonData.id).to.eql(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  //\"id\": 101,\r\n  \"title\": \"updated title\",\r\n  \"body\": \"updated body\",\r\n  \"userId\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/posts/1",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response is an array\", function () {\r",
+									"  const jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData).to.be.an('array');\r",
+									"  pm.expect(jsonData.length).to.be.above(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Each post has required keys\", function () {\r",
+									"  const jsonData = pm.response.json();\r",
+									"  jsonData.forEach(post => {\r",
+									"    pm.expect(post).to.have.all.keys(\"userId\", \"id\", \"title\", \"body\");\r",
+									"  });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/posts",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE a Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 or 204\", function () {\r",
+									"  pm.expect([200, 204]).to.include(pm.response.code);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/posts/1",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "All APIs",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "GET all posts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/posts",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET all posts by specific user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/posts?userId=3",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"posts"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET a specific post by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/posts/1",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"posts",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET all users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/users",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET a specific user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/users/1",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET all todos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/todos",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"todos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Specific todos by user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/todos?userId=2",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"todos"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Specific todos by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/todos/3",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"todos",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET all albums",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/albums",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Specific album by user ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/albums?userId=2",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"albums"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Specific album by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/albums/5",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"albums",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET all photos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/photos",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"photos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Specific photo by photo ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/photos/3",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"photos",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Specific photos by album ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/photos?albumId=5",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"photos"
+									],
+									"query": [
+										{
+											"key": "albumId",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET all comments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/comments",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Specific comment by comment ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/comments/3",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"comments",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET all comments for a specific post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/posts/4/comments",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"posts",
+										"4",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET specific comments by post ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/comments?postId=4",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"comments"
+									],
+									"query": [
+										{
+											"key": "postId",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET all comments for a specific post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/posts/1/comments",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"posts",
+										"1",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "CREATE a Post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"foo\",\r\n  \"body\": \"bar\",\r\n  \"userId\": 1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/posts",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"item": [
+						{
+							"name": "UPDATE a Post",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  //\"id\": 101,\r\n  \"title\": \"updated title\",\r\n  \"body\": \"updated body\",\r\n  \"userId\": 1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/posts/2",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"posts",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PATCH",
+					"item": [
+						{
+							"name": "UPDATE a specific field of a Post",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"body\": \"updated body here\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/posts/2",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"posts",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "DELETE a Post",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://jsonplaceholder.typicode.com/posts/2",
+									"protocol": "https",
+									"host": [
+										"jsonplaceholder",
+										"typicode",
+										"com"
+									],
+									"path": [
+										"posts",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
